@@ -10,7 +10,7 @@ body{
 }
 
 a{
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 ul{
@@ -19,6 +19,8 @@ ul{
 
 .PDFlist > li{
     display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 header{

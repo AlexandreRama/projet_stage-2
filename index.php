@@ -27,6 +27,18 @@
                 </form>
 
                 <ul class="PDFlist">
+                <?php
+                    $files = scandir("stock");
+                    for ($a = 2; $a < count($files); $a++) {
+                ?>
+                    <li>
+                        <a href="stock/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
+                    </li>
+                <?php        
+                    }
+
+                ?>
+
                     <li></li>
                     <li></li>
                 </ul>
