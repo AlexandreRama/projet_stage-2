@@ -60,6 +60,8 @@
                         <a class="downloadBtn" download="stock/<?php echo $files[$a] ?>" href="stock/<?php echo $files[$a] ?>">
                             <i class='bx bxs-download'></i> 
                         </a>
+                        <i class='bx bx-x'></i>
+                        <i class='bx bxs-edit-alt' ></i>
                     </div>
 
                     <div><div id="dmY"><?php echo date("d/m/Y",filemtime("stock/".$files[$a])) ?></div><div id="Hmin"><?php echo date("H:i",filemtime("stock/".$files[$a])) ?></div></div>
