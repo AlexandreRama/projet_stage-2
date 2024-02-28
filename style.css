@@ -10,17 +10,11 @@ body{
 }
 
 a{
-    /*text-decoration: none;*/
+    text-decoration: none;
 }
 
 ul{
     list-style: none;
-}
-
-.PDFlist > li{
-    display: flex;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 header{
@@ -61,6 +55,7 @@ header{
     width: 100px;
     cursor: pointer;
     border: 1px solid;
+    background-color: #8B8982;
     
 }
 
@@ -78,4 +73,23 @@ header{
         margin-left: 10px;
     }
 
+}
+
+.PDFlist > li{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+
+.downloadButton{
+    border: 1px solid black;
+    height: auto;
+    margin-left: 5px;
+    background-color: #8B8982;
+}
+
+.downloadButton:hover{
+    background-color: #C3C9E9;
 }

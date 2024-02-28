@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,7 +6,7 @@
         <title>Délibérations</title>
     </head>
     <body>
-        <!--
+
         <header>
             <div class="navbar">
                 <img class="logo" src="logo_Standre.png">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </header>
-        -->
+
             <div class="main">
 
                 <form method="POST" enctype="multipart/form-data" action="upload.php">
@@ -32,15 +32,17 @@
                     for ($a = 2; $a < count($files); $a++) {
                 ?>
                     <li>
-                        <a href="stock/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
+                        <p><?php echo $files[$a] ?></p>
+                        <div class="downloadButton">
+                            <a download="stock/<?php echo $files[$a] ?>" href="stock/<?php echo $files[$a] ?>">Télécharger</a>
+                        </div>
+                        <p><?php echo date("d/m/Y H:i.",filemtime("stock/".$files[$a])) ?></p>
                     </li>
                 <?php        
                     }
 
                 ?>
 
-                    <li></li>
-                    <li></li>
                 </ul>
             </div>
 
