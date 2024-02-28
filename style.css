@@ -5,8 +5,15 @@ body{
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     background-color: #AAABBC;
+    
+}
+
+.main{
+    width: 100%;
+    height: 100%;
 }
 
 a{
@@ -30,13 +37,9 @@ header{
     display: flex;
     justify-content:space-between;
     align-items: center;
-    border-bottom-right-radius: 5%;
-    border-bottom-left-radius: 5%;
+
 }
 
-.logo{
-    /*padding-right: 33%;*/
-}
 
 .title{
     width:fit-content;
@@ -45,6 +48,7 @@ header{
 
 
 /*Bouton de login*/
+
 .adminButton{
     font-size: 200%;
     text-align: center;
@@ -75,21 +79,109 @@ header{
 
 }
 
+/*---------------------------------*/
+
+/*formulaire de login*/
+
+#loginForm{
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginWrapper {
+    
+    width: 350px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.inputBox{
+    width: 90%;
+    height: 40px;
+    margin: 15px 0 15px 15px;
+    background-color: white;
+    border-radius: 40px;
+}
+
+.inputBox input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    margin-left: 10px;
+}
+
+#loginForm i{
+    position: relative;
+    transform: translate(352px, -96px);
+    font-size: 30px;
+    background: #162938;
+    color: beige;
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+}
+
+.loginBtn{
+    margin-bottom: 10px;
+}
+
+/*---------------------------------*/
+
+
+
+
+
+
+
+
 .PDFlist > li{
     display: flex;
     margin-top: 5px;
     margin-bottom: 5px;
     align-items: center;
     border-bottom: 1px solid gray;
+    justify-content: space-between;
+    padding-right: 10px;
 }
 
-.downloadButton{
-    border: 1px solid black;
-    height: auto;
+.PDFlist > li > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.PDFlist > li > div > *{
+    margin-left: 20px;
+}
+
+.downloadBtn{
     margin-left: 5px;
-    background-color: #8B8982;
+    display: none;
 }
 
-.downloadButton:hover{
-    background-color: #C3C9E9;
+.downloadBtn > i{
+    font-size: 20px; 
+    color: black;
 }
+
+.PDFlist > li:hover > div > .downloadBtn{
+    display: block;
+}
+
+#Hmin{
+    display: none;
+}
+
+.PDFlist > li:hover > div > #Hmin{
+    display: block;
+}
+
