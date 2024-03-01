@@ -168,13 +168,24 @@ header{
     align-items: center;
 }
 
+.fileName{
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fileName > p {
+    width: 100%;
+}
+
 .info-pdf > div > *{
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .downloadBtn{
-    margin-left: 5px;
-    display: none;
+    
+    /*display: none;*/
+    visibility: hidden;
 }
 
 .downloadBtn > i{

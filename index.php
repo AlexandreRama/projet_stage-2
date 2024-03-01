@@ -53,24 +53,27 @@
 
             <div id="filterBar">
                 <p>filtrer :</p>
-                <input type="text" id="nameSearchBar" onkeyup="filter('nameSearchBar')" placeholder="Nom du fichier">
-                <input type="text" id="filterSearchBar" onkeyup="" placeholder="...">
-                <input type="text" id="dateSearchBar" onkeyup="filter('dateSearchBar')" placeholder="Jour/Mois/Année">
+                <div>
+                    <input type="text" id="nameSearchBar" onkeyup="filter('nameSearchBar')" placeholder="Nom du fichier">
+                    <input type="text" id="filterSearchBar" onkeyup="" placeholder="...">
+                    <input type="text" id="dateSearchBar" onkeyup="filter('dateSearchBar')" placeholder="Jour/Mois/Année">
+                </div>
             </div>
             
 
             <ul class="PDFlist" id="PDFlist">
                 <li class="info-pdf" id="rowTitle">
-                    <p>Nom</p>
+                    <div class="fileName"><p>Nom</p></div>
                     <p>Format</p>
                     <p>Date d'importation</p>
+                    <p>Autre information</p>
                 </li>
             <?php
                 $files = scandir("stock");
                 for ($a = 2; $a < count($files); $a++) {
             ?>
                 <li class="info-pdf">
-                    <div>
+                    <div class="fileName">
                         <p><?php echo explode('.',$files[$a])[0]?></p>
                     </div>
 
