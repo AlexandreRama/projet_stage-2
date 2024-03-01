@@ -9,16 +9,18 @@
         <title>Délibérations</title>
     </head>
     <body>
-
+        
         <div id="loginForm">
-            <i class='bx bx-x' onclick="closeLogin()"></i>
+            <i id="closeLoginBtn" class='bx bx-x' onclick="closeLogin()"></i>
             <div class="loginWrapper">
                 <form action="">
                     <h1>Connexion admin</h1>
                     <div class="inputBox">
+                        <i id="userIcon" class='bx bxs-user'></i>
                         <input type="text" placeholder="Identifiant" required>
                     </div>
                     <div class="inputBox">
+                        <i id="lockIcon" class='bx bxs-lock' ></i> 
                         <input type="password" placeholder="Mot de passe" required>
                     </div>
 
@@ -29,7 +31,7 @@
 
         <header>
             <div class="navbar">
-                <img class="logo" src="logo_Standre.png">
+                <img class="logo" src="logo_Standre.png" alt="Logo de Saint Andre">
                 <h1 class="title">Dépot de délibérations</h1>
                 <div class="adminButton">
                     <div onclick="showLogin()">
@@ -39,32 +41,49 @@
             </div>
         </header>
 
-        
-
+      
         <div class="main">
 
+            <form method="POST" enctype="multipart/form-data" action="upload.php" id="uploadForm">
+                <input type="file" id="file-input"  name="file" accept="application/pdf" multiple>
+                <label for="file-input" id="file-input-label"><p>Choisir un fichier</p><i class='bx bx-upload'></i></label>
 
-            <form method="POST" enctype="multipart/form-data" action="upload.php">
-                <input type="file" name="file">
-                <input type="submit" value="Upload">
+                <input type="submit" value="Confirmer">
             </form>
 
-            <ul class="PDFlist">
+            <div id="filterBar">
+                <p>filtrer :</p>
+                <input type="text" id="nameSearchBar" onkeyup="filter('nameSearchBar')" placeholder="Nom du fichier">
+                <input type="text" id="filterSearchBar" onkeyup="" placeholder="...">
+                <input type="text" id="dateSearchBar" onkeyup="filter('dateSearchBar')" placeholder="Jour/Mois/Année">
+            </div>
+            
+
+            <ul class="PDFlist" id="PDFlist">
+                <li class="info-pdf" id="rowTitle">
+                    <p>Nom</p>
+                    <p>Format</p>
+                    <p>Date d'importation</p>
+                </li>
             <?php
                 $files = scandir("stock");
                 for ($a = 2; $a < count($files); $a++) {
             ?>
                 <li class="info-pdf">
                     <div>
-                        <p><?php echo $files[$a] ?></p>
-                        <a class="downloadBtn" download="stock/<?php echo $files[$a] ?>" href="stock/<?php echo $files[$a] ?>">
+                        <p><?php echo explode('.',$files[$a])[0]?></p>
+                    </div>
+
+                    <p class="format"><?php echo explode('.',$files[$a])[1]?></p>
+
+                    <div><div class="dmY"><?php echo date("d/m/Y",filemtime("stock/".$files[$a])) ?></div><div class="Hmin"><?php echo date("H:i",filemtime("stock/".$files[$a])) ?></div></div>
+                    <div>
+                        <a class="downloadBtn" download="<?php echo $files[$a] ?>" href="stock/<?php echo $files[$a] ?>">
                             <i class='bx bxs-download'></i> 
                         </a>
                         <i class='bx bx-x'></i>
                         <i class='bx bxs-edit-alt' ></i>
                     </div>
-
-                    <div><div id="dmY"><?php echo date("d/m/Y",filemtime("stock/".$files[$a])) ?></div><div id="Hmin"><?php echo date("H:i",filemtime("stock/".$files[$a])) ?></div></div>
                 </li>
             <?php        
                 }
