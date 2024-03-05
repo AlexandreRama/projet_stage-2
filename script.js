@@ -1,12 +1,15 @@
-function showLogin(){
-    let loginForm = document.getElementById('loginForm');
-    loginForm.style.display = "flex";
+let element;
+
+function showElement(id){
+    element = document.getElementById(id);
+    element.style.display = "flex";
 }
 
-function closeLogin(){
-    let loginForm = document.getElementById('loginForm');
-    loginForm.style.display = "none";
+function closeElement(id){
+    element = document.getElementById(id);
+    element.style.display = "none";
 }
+
 
 function filter(input){
     let filter, ul, li ,div, p, i, txtValue;
