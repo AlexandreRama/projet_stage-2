@@ -12,7 +12,13 @@ function closeElement(id){
 
 function switchDirectory(idToShow, idToHide){
     elementToShow = document.getElementById(idToShow);
-    elementToShow.style.display = "block";
+    console.log(idToShow);
+    if(idToShow == "stock"){
+        elementToShow.style.display = "flex";
+    } else {
+        elementToShow.style.display = "block";
+    }
+    
 
     elementToHide = document.getElementById(idToHide);
     elementToHide.style.display = "none";
