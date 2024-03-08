@@ -10,13 +10,22 @@ function closeElement(id){
     element.style.display = "none";
 }
 
+function switchDirectory(idToShow, idToHide){
+    elementToShow = document.getElementById(idToShow);
+    elementToShow.style.display = "block";
+
+    elementToHide = document.getElementById(idToHide);
+    elementToHide.style.display = "none";
+}
+
 
 function filter(input){
     let filter, ul, li ,div, p, i, txtValue;
 
     filter = document.getElementById(input).value.toUpperCase();
-    
-    ul = document.getElementById("PDFlist");
+
+
+    ul = document.getElementsByClassName('PDFlist')[0].getElementsByTagName('ul')[0];
     li = ul.getElementsByTagName("li");
 
     for (i=1; i<li.length; i++) {
@@ -29,6 +38,10 @@ function filter(input){
             case "dateSearchBar":
                 div = li[i].getElementsByTagName("div")[1];
                 txtValue = div.getElementsByTagName("div")[0].textContent;
+                break;
+            case "themeSearchBar":
+                p = li[i].getElementsByTagName("p")[2];
+                txtValue = p.textContent;
                 break;
         }
 

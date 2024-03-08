@@ -8,7 +8,7 @@ body{
     min-height: 100vh;
     width: 100%;
     background-color: white;
-    
+    font-family: 'Poppins',sans-serif;
 }
 
 .main{
@@ -65,92 +65,32 @@ header{
 /*Bouton de login*/
 
 .adminButton{
-    font-size: 200%;
     text-align: center;
-    width: 170px;
+    width: 150px;
+    display: flex;
+    flex-direction:row;
 }
 
-.adminButton > div{
+.adminButton > a{
     width: 100px;
     cursor: pointer;
-    border: 1px solid;
-    background-color: #8B8982;
-    
 }
 
-.adminButton > div:hover{
+.adminButton > a:hover > i{
     background-color: #C3C9E9;
 }
 
+.adminButton > a > i{
+    border-radius: 50%;
+    font-size: 70px;
+    color: black;
+    border: 1px solid #162938;
+}
 /*---------------------------------*/
-
-/*formulaire de login*/
-
-#loginForm{
-
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(4px);
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.loginWrapper {
-    
-    width: 350px;
-    background-color: whitesmoke;
-    border: 1px solid black;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.inputBox{
-    width: 90%;
-    height: 40px;
-    margin: 15px 0 15px 15px;
-    background-color: white;
-    border-radius: 40px;
-    border: 1px solid gray;
-}
-
-.inputBox input{
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: none;
-    margin-left: 10px;
-}
-
-#loginForm #closeLoginBtn{
-    position: relative;
-    transform: translate(351px, -98px);
-    font-size: 31px;
-    background: #162938;
-    color: white;
-    cursor: pointer;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 10px;
-}
-
-.loginBtn{
-    margin-bottom: 10px;
-}
-
-#lockIcon, #userIcon{
-    position: absolute;
-    transform: translate(290px, 10px);
-}
-
-/*---------------------------------*/
-
 
 /*Liste des pdf*/
 
-.PDFlist{
+.PDFlist, .dirList{
     margin-right: 40px;
 }
 
@@ -176,13 +116,13 @@ header{
     align-items: center;
 }
 
-.fileName{
+.fileName, .dirName{
     width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.fileName > p {
+.fileName > p , .dirName > p{
     width: 100%;
 }
 
@@ -227,8 +167,36 @@ header{
     margin-left: 5px;
 }
 
-.info-pdf:hover{
-    background-color: #6991d6;
+.info-pdf:hover, .info-dir:hover{
+    border: 5px solid #6991d6;
+}
+
+.info-dir:hover{
+    zoom: 1.2;
+}
+
+.dirList{
+    display: flex;
+    flex-direction: row;
+}
+
+.info-dir{
+    color: white;
+    height: 150px;
+    width: 140px;
+    background-color: #232020;
+    border: 2px solid #162938;
+    border-radius: 4px;
+    margin: 20px 20px;
+    text-align: center;
+}
+
+.info-dir div{
+    width: 100%;
+}
+
+.dirList li .nbDeliv{
+    bottom: 0;
 }
 
 /*----------------------------*/
@@ -307,4 +275,20 @@ header{
 
 #file-input-label:hover, #submitBtn:hover{
     background-color: #C3C9E9;
+}
+
+#uploadForm > input{
+    margin-top: 10px;
+}
+
+/*----------------------------*/
+
+.PDFlist{
+    display: none;
+}
+
+.PDFlist i{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 30px;
 }

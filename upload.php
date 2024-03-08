@@ -1,8 +1,10 @@
 <?php 
 
-$file = $_FILES["file"];
+$file = $_FILES["file-input"];
 
-move_uploaded_file($file["tmp_name"], "stock/" . $file["name"]);
+$conseil = $_POST['conseil-input'];
+
+move_uploaded_file($file["tmp_name"], "stock/" . $conseil . "/" . $file["name"]);
 
 header("Location: index.php");
 
