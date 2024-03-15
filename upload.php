@@ -8,5 +8,4 @@ move_uploaded_file($file["tmp_name"], "stock/" . $conseil . "/" . $file["name"])
 
 header("Location: index.php");
 
-
 ?>
