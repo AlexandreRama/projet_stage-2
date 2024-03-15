@@ -14,6 +14,18 @@
         <title>Délibérations</title>
     </head>
     <body>
+
+        <div id="deleteDirectoryFormWrapper">
+            <div>
+                <p></p>
+                <form action="rmdir.php" method="POST" id="deleteDirectoryForm">
+                    <input type="submit" value="Confirmer" id="deleteDirectorysubmitBtn">
+                    
+                    <button></button>
+                </form>
+            </div>
+        </div>
+        
         
         <div id="uploadFormWrapper">
             <div>
@@ -26,7 +38,7 @@
                     <input type="text" id="conseil-input" name="conseil-input" placeholder="conseil">
                     <input type="text" id="theme-input" name="theme-input" placeholder="thèmes (thème1, thème2,...)">
 
-                    <input type="submit" value="Confirmer" id="submitBtn">
+                    <input type="submit" value="Confirmer" id="uploadFormSubmitBtn">
                 </form>
 
             </div>
@@ -50,7 +62,7 @@
                 <img class="logo" src="logo_Standre.png" alt="Logo de Saint Andre">
                 <h1 class="title">Dépot de délibérations</h1>
                 <div class="adminButton">
-                <?php
+                <?php //----------------------------------------------------------------------------
                     if(isset($_SESSION['user_identified']) && $_SESSION['user_identified']){
                 ?>
                     <a>
@@ -59,7 +71,7 @@
                     <a href="logout.php">
                         <i class='bx bx-log-out-circle' ></i>
                     </a>
-                <?php
+                <?php //----------------------------------------------------------------------------
                     } else {
                 ?>
                     <a href="login_page.php">
@@ -108,15 +120,24 @@
                     </div>
                     <p class="nbDelib">Nombre de délibération: <?php echo count(scandir("stock/".$dir[$a]))-2;?></p>
                     
+                    <?php //----------------------------------------------------------------------
+                        if(isset(=$_SESSION['user_identified']) && $_SESSION['user_identified']){
+                    ?>
+
                     <div class="editBtns">
                         <a href="https://www.google.fr/"><i class='bx bx-x'></i></a>
                         
                         <i class='bx bxs-edit-alt' ></i>
                     </div>
                     
+                    <?php
+                        }
+                    //----------------------------------------------------------------------------?>
 
                 </li>
-            <?php        
+
+
+            <?php //--------------------------------------------------------------------------------        
                 } if(isset($_SESSION['user_identified']) && $_SESSION['user_identified']){
             ?>
                 <li class="info-dir" id="addDirBtn" onclick="showElement('directoryFormWrapper')">
@@ -127,7 +148,7 @@
                 </li>
             <?php
                 }
-            ?>
+            //---------------------------------------------------------------------------------------?>
             </ul>
             <?php
 

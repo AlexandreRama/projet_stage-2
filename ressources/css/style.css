@@ -289,14 +289,14 @@ header{
     cursor: pointer;
 }
 
-#submitBtn{
+#uploadFormSubmitBtn{
     margin-top: 5px;
     background-color: whitesmoke;
     border: 1px solid gray;
     border-radius: 4px;
 }
 
-#file-input-label:hover, #submitBtn:hover{
+#file-input-label:hover, #uploadFormSubmitBtn:hover{
     background-color: #C3C9E9;
 }
 
