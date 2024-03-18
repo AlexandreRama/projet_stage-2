@@ -74,8 +74,15 @@ function filter(filterList, input){
                 li[i].style.display = "none";
             }
         }
-    }
-
-    
+    } 
 }
+
+function deleteDirectory(dir){
+    let p = document.getElementById("directoryToDelete");
+    p.textContent = dir;
+
+    showElement("deleteDirectoryFormWrapper");
+}
+
+///////
 

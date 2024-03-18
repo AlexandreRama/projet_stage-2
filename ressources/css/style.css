@@ -245,7 +245,7 @@ header{
     border-radius: 10px;
 }
 
-#closeFormBtn{
+#deleteDirectoryFormCloseBtn, #uploadFormCloseBtn, #directoryFormCloseBtn{
     position: relative;
     transform: translateX(270px);
     font-size: 31px;
@@ -365,6 +365,32 @@ header{
 
 /*----------------------------*/
 
+/* Formulaire de suppression de conseil */
+
+#deleteDirectoryFormWrapper{
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#deleteDirectoryFormWrapper div{
+    width: 300px;
+    height: 170px;
+    background: white;
+    border-radius: 10px;
+}
+
+
+
+/*----------------------------------------*/
+
+
 .PDFlist{
     display: none;
 }
@@ -380,9 +406,26 @@ header{
 }
 
 .editBtns{
+    z-index: 2;
     display: none;
+    transform: translateY(30px);
+    color: black;
 }
 
 .info-dir:hover > .editBtns{
     display: block;
+}
+
+#PDFlistFilter > *, #dirListFilter > *{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#PDFlistFilter > *:focus, #dirListFilter > *:focus{
+    outline: none;
+}
+
+#PDFlistFilter{
+    display: none;
 }

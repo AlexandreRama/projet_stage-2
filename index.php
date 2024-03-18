@@ -17,11 +17,13 @@
 
         <div id="deleteDirectoryFormWrapper">
             <div>
+            <i id="deleteDirectoryFormCloseBtn" class='bx bx-x' onclick="closeElement('deleteDirectoryFormWrapper')"></i>
+
                 <p></p>
                 <form action="rmdir.php" method="POST" id="deleteDirectoryForm">
+                    <p>êtes-vous sûre de vouloir supprimer ce conseil ?</p>
+                    <p id="directoryToDelete"></p>
                     <input type="submit" value="Confirmer" id="deleteDirectorysubmitBtn">
-                    
-                    <button></button>
                 </form>
             </div>
         </div>
@@ -29,7 +31,7 @@
         
         <div id="uploadFormWrapper">
             <div>
-                <i id="closeFormBtn" class='bx bx-x' onclick="closeElement('uploadFormWrapper')"></i>
+                <i id="uploadFormCloseBtn" class='bx bx-x' onclick="closeElement('uploadFormWrapper')"></i>
 
                 <form method="POST" enctype="multipart/form-data" action="upload.php" id="uploadForm">
                     <input type="file" id="file-input"  name="file-input" accept="application/pdf" multiple>
@@ -46,7 +48,7 @@
 
         <div id="directoryFormWrapper">
             <div>
-                <i id="closeFormBtn" class='bx bx-x' onclick="closeElement('directoryFormWrapper')"></i>
+                <i id="directoryFormCloseBtn" class='bx bx-x' onclick="closeElement('directoryFormWrapper')"></i>
 
                 <h2>Ajouter un conseil</h2>
                 
@@ -99,8 +101,6 @@
                         <input type="text" id="nameSearchBar" onkeyup="filter('PDFlistFilter' ,'nameSearchBar')" placeholder="Nom du fichier">
                         <input type="text" id="dateSearchBar" onkeyup="filter('PDFlistFilter' ,'dateSearchBar')" placeholder="Jour/Mois/Année">
                         <input type="text" id="themeSearchBar" onkeyup="filter('PDFlistFilter' ,'themeSearchBar')" placeholder="Thème">
-                        <input type="text" id="...SearchBar" onkeyup="" placeholder="...">
-                        <input type="text" id="...SearchBar" onkeyup="" placeholder="...">
                     </div>
                     <div id="dirListFilter">
                         <input type="text" id="nameSearchBar" onkeyup="filter('dirListFilter' ,'nameSearchBar')" placeholder="Nom du dossier">
@@ -121,11 +121,11 @@
                     <p class="nbDelib">Nombre de délibération: <?php echo count(scandir("stock/".$dir[$a]))-2;?></p>
                     
                     <?php //----------------------------------------------------------------------
-                        if(isset(=$_SESSION['user_identified']) && $_SESSION['user_identified']){
+                        if(isset($_SESSION['user_identified']) && $_SESSION['user_identified']){
                     ?>
 
                     <div class="editBtns">
-                        <a href="https://www.google.fr/"><i class='bx bx-x'></i></a>
+                        <i class='bx bx-x' onclick="deleteDirectory('<?php echo $dir[$a]; ?>');"></i>
                         
                         <i class='bx bxs-edit-alt' ></i>
                     </div>
