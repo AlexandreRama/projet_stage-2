@@ -17,14 +17,14 @@
 
         <div id="deleteDirectoryFormWrapper">
             <div>
-            <i id="deleteDirectoryFormCloseBtn" class='bx bx-x' onclick="closeElement('deleteDirectoryFormWrapper')"></i>
+            <!--<i id="deleteDirectoryFormCloseBtn" class='bx bx-x'-->
 
-                <p></p>
                 <form action="rmdir.php" method="POST" id="deleteDirectoryForm">
                     <p>êtes-vous sûre de vouloir supprimer ce conseil ?</p>
                     <p id="directoryToDelete"></p>
                     <input type="submit" value="Confirmer" id="deleteDirectorysubmitBtn">
                 </form>
+                <button  onclick="closeElement('deleteDirectoryFormWrapper')">Annuler</button>
             </div>
         </div>
         
@@ -114,12 +114,14 @@
                 $dir = scandir("stock");
                 for ($a = 2; $a < count($dir); $a++) {
             ?>
-                <li class="info-dir" onclick='switchDirectory("<?php echo $dir[$a]; ?>", "stock")'>
-                    <div class="fileName">
-                        <p><?php echo explode('.',$dir[$a])[0];?></p>
+                <li class="info-dir">
+                    <div class="info-box" onclick='switchDirectory("<?php echo $dir[$a]; ?>", "stock")'>
+                        <div class="fileName">
+                            <p><?php echo explode('.',$dir[$a])[0];?></p>
+                        </div>
+                        <p class="nbDelib">Nombre de délibération: <?php echo count(scandir("stock/".$dir[$a]))-2;?></p>
                     </div>
-                    <p class="nbDelib">Nombre de délibération: <?php echo count(scandir("stock/".$dir[$a]))-2;?></p>
-                    
+
                     <?php //----------------------------------------------------------------------
                         if(isset($_SESSION['user_identified']) && $_SESSION['user_identified']){
                     ?>
@@ -141,10 +143,12 @@
                 } if(isset($_SESSION['user_identified']) && $_SESSION['user_identified']){
             ?>
                 <li class="info-dir" id="addDirBtn" onclick="showElement('directoryFormWrapper')">
-                    <div>
-                        <i class='bx bxs-folder-plus'></i>
+                    <div class="info-box" >
+                        <div>
+                            <i class='bx bxs-folder-plus'></i>
+                        </div>
+                        <p>Créer un nouveau conseil</p>
                     </div>
-                    <p>Créer un nouveau conseil</p>
                 </li>
             <?php
                 }

@@ -182,6 +182,10 @@ header{
     margin: 0;
 }
 
+.info-dir:hover > .info-box{
+    transform: translate(-1px, -1px);
+}
+
 .dirList{
     padding: 0;
     margin: 10px;
@@ -191,18 +195,34 @@ header{
 }
 
 .info-dir{
-    color: white;
-    height: 150px;
     width: 140px;
-    background-color: #232020;
-    border: 2px solid #162938;
-    border-radius: 4px;
+    height: 150px;
     margin: 20px 20px;
     text-align: center;
 }
 
+.info-dir > .info-box{
+    margin: auto;
+    color: white;
+    height: 99%;
+    width: 99%;
+    background-color: #232020;
+    border: 2px solid #162938;
+    border-radius: 4px;
+}
+
 .info-dir div{
     width: 100%;
+}
+
+.editBtns{
+    z-index: 2;
+    display: none;
+    color: black;
+}
+
+.info-dir:hover > .editBtns{
+    display: block;
 }
 
 #addDirBtn div i{
@@ -245,7 +265,7 @@ header{
     border-radius: 10px;
 }
 
-#deleteDirectoryFormCloseBtn, #uploadFormCloseBtn, #directoryFormCloseBtn{
+#uploadFormCloseBtn, #directoryFormCloseBtn{
     position: relative;
     transform: translateX(270px);
     font-size: 31px;
@@ -369,6 +389,7 @@ header{
 
 #deleteDirectoryFormWrapper{
     z-index: 2;
+    text-align: center;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -381,9 +402,25 @@ header{
 
 #deleteDirectoryFormWrapper div{
     width: 300px;
-    height: 170px;
+    height: 180px;
     background: white;
     border-radius: 10px;
+}
+
+#deleteDirectoryFormCloseBtn{
+    position: relative;
+    transform: translateX(136px);
+    font-size: 31px;
+    background: #162938;
+    color: white;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#deleteDirectoryFormWrapper > #deleteDirectoryForm > p{
+    font-size: 60px;
+    margin: 15px 15px;
 }
 
 
@@ -403,17 +440,6 @@ header{
 
 #filterBar{
     margin: 0 20px;
-}
-
-.editBtns{
-    z-index: 2;
-    display: none;
-    transform: translateY(30px);
-    color: black;
-}
-
-.info-dir:hover > .editBtns{
-    display: block;
 }
 
 #PDFlistFilter > *, #dirListFilter > *{
